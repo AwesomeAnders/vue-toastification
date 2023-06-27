@@ -54,6 +54,7 @@ interface ToastProps {
   closeButton?: ToastOptionsAndContent["closeButton"]
   closeButtonClassName?: ToastOptionsAndContent["closeButtonClassName"]
   closeOnClick?: ToastOptionsAndContent["closeOnClick"]
+  applyCss?: ToastOptionsAndContent["applyCss"]
   draggable?: ToastOptionsAndContent["draggable"]
   draggablePercent?: ToastOptionsAndContent["draggablePercent"]
   eventBus?: ToastOptionsAndContent["eventBus"]
@@ -84,6 +85,7 @@ const props = withDefaults(defineProps<ToastProps>(), {
   draggablePercent: TOAST_DEFAULTS.draggablePercent,
   eventBus: TOAST_DEFAULTS.eventBus,
   hideProgressBar: TOAST_DEFAULTS.hideProgressBar,
+  applyCss: TOAST_DEFAULTS.applyCss,
   icon: TOAST_DEFAULTS.icon,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick: () => {},
@@ -130,6 +132,7 @@ watch(dragComplete, v => {
   }
 })
 const classes = computed(() => {
+  if(!props.applyCss) return []
   const classes = [
     `${VT_NAMESPACE}__toast`,
     `${VT_NAMESPACE}__toast--${props.type}`,
@@ -143,11 +146,14 @@ const classes = computed(() => {
   }
   return classes
 })
-const bodyClasses = computed(() =>
-  [
+const bodyClasses = computed(() =>{
+  if(!props.applyCss) return []
+  return [
     `${VT_NAMESPACE}__toast-${
       isString(props.content) ? "body" : "component-body"
     }`,
   ].concat(props.bodyClassName)
+}
+ 
 )
 </script>

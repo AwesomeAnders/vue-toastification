@@ -131,6 +131,7 @@ const asContainerProps = (
 ): ToastContainerOptions => {
   const {
     position,
+    applyCss
     container,
     newestOnTop,
     maxToasts,
@@ -143,6 +144,7 @@ const asContainerProps = (
     ...defaultToastProps
   } = options
   const containerProps = {
+    applyCss,
     position,
     container,
     newestOnTop,

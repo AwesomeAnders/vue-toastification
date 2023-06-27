@@ -20,6 +20,7 @@ export const TOAST_DEFAULTS: Required<InferDefaults<Readonly<ToastOptions>>> = {
     closeButtonLabel: "close",
   }),
   bodyClassName: () => [],
+  applyCss: true,
   closeButton: () => "button",
   closeButtonClassName: () => [],
   closeOnClick: true,

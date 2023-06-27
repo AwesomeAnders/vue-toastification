@@ -23,6 +23,10 @@ export declare interface BaseToastOptions
    *  Can be any of top-right, top-center, top-left, bottom-right, bottom-center, bottom-left.
    */
   position?: POSITION
+  /**
+   * 	Whether or not the toast is closed when clicked.
+   */
+  applyCss?: boolean
 
   /**
    * 	Whether or not the toast is closed when clicked.
